@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[防止重复触发事件]]></title>
     <url>%2F2018%2F09%2F02%2Fthrottle%2F</url>
-    <content type="text"><![CDATA[应用场景重复触发就是防止用户重复点击提交数据了，我们一般都是点击之后没反应会再次点击了，这个不但要从用户体验上来做好，还在要js或php程序脚本上做好，让用户知道点击是己提交服务器正在处理，下面我就整理从脚本上来处理此重复触发的问题。很多时候事件会被快速重复触发，比如 click，这样就会执行两次代码，造成很多后果。现在有比较多的解决方法，但几乎都有局限性，比如一个 Ajax 表单，如果防止用户一次点好多下可以在第一次点击的时候冻结提交按钮，直到允许再次点击的时候再放开。很多人都这样干，但在其他的情况就不是很有效了。 方法 12345678910111213var _timer = &#123;&#125;;function delay_till_last(id, fn, wait) &#123; if (_timer[id]) &#123; window.clearTimeout(_timer[id]); delete _timer[id]; &#125; return _timer[id] = window.setTimeout(function() &#123; fn(); delete _timer[id]; &#125;, wait);&#125;&lt;!--more--&gt; 调用方法 12345$dom.on(&apos;click&apos;, function() &#123; delay_till_last(&apos;id&apos;, function() &#123;//注意 id 是唯一的 //响应事件 &#125;, 300);&#125;); 扩展知识：函数节流 + 函数防抖]]></content>
+    <content type="text"><![CDATA[应用场景重复触发就是防止用户重复点击提交数据了，我们一般都是点击之后没反应会再次点击了，这个不但要从用户体验上来做好，还在要js或php程序脚本上做好，让用户知道点击是己提交服务器正在处理，下面我就整理从脚本上来处理此重复触发的问题。很多时候事件会被快速重复触发，比如 click，这样就会执行两次代码，造成很多后果。现在有比较多的解决方法，但几乎都有局限性，比如一个 Ajax 表单，如果防止用户一次点好多下可以在第一次点击的时候冻结提交按钮，直到允许再次点击的时候再放开。很多人都这样干，但在其他的情况就不是很有效了。 方法 123456789101112var _timer = &#123;&#125;;function delay_till_last(id, fn, wait) &#123; if (_timer[id]) &#123; window.clearTimeout(_timer[id]); delete _timer[id]; &#125; return _timer[id] = window.setTimeout(function() &#123; fn(); delete _timer[id]; &#125;, wait);&#125; 调用方法 12345$dom.on(&apos;click&apos;, function() &#123; delay_till_last(&apos;id&apos;, function() &#123;//注意 id 是唯一的 //响应事件 &#125;, 300);&#125;); 扩展知识：函数节流 + 函数防抖]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>

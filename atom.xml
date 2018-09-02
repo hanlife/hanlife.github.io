@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanlife.github.io/"/>
-  <updated>2018-09-02T08:08:27.790Z</updated>
+  <updated>2018-09-02T08:10:19.589Z</updated>
   <id>https://hanlife.github.io/</id>
   
   <author>
@@ -21,17 +21,15 @@
     <link href="https://hanlife.github.io/2018/09/02/throttle/"/>
     <id>https://hanlife.github.io/2018/09/02/throttle/</id>
     <published>2018-09-02T08:06:57.000Z</published>
-    <updated>2018-09-02T08:08:27.790Z</updated>
+    <updated>2018-09-02T08:10:19.589Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;重复触发就是防止用户重复点击提交数据了，我们一般都是点击之后没反应会再次点击了，这个不但要从用户体验上来做好，还在要js或php程序脚本上做好，让用户知道点击是己提交服务器正在处理，下面我就整理从脚本上来处理此重复触发的问题。&lt;br&gt;很多时候事件会被快速重复触发，比如 click，这样就会执行两次代码，造成很多后果。现在有比较多的解决方法，但几乎都有局限性，比如一个 Ajax 表单，如果防止用户一次点好多下可以在第一次点击的时候冻结提交按钮，直到允许再次点击的时候再放开。很多人都这样干，但在其他的情况就不是很有效了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;方法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var _timer = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function delay_till_last(id, fn, wait) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (_timer[id]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        window.clearTimeout(_timer[id]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        delete _timer[id];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return _timer[id] = window.setTimeout(function() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        delete _timer[id];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, wait);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanlife.github.io/"/>
-  <updated>2018-09-02T08:10:19.589Z</updated>
+  <updated>2018-09-16T11:01:45.000Z</updated>
   <id>https://hanlife.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序-page</title>
+    <link href="https://hanlife.github.io/2018/09/16/Wechat01/"/>
+    <id>https://hanlife.github.io/2018/09/16/Wechat01/</id>
+    <published>2018-09-16T11:16:05.000Z</published>
+    <updated>2018-09-16T11:01:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;封装Page&quot;&gt;&lt;a href=&quot;#封装Page&quot; class=&quot;headerlink&quot; title=&quot;封装Page&quot;&gt;&lt;/a&gt;封装Page&lt;/h2&gt;&lt;p&gt;封装思路：实现所有页面所有事件统一处理。如果单独页面直接定义页面事件，公共方法被重写。&lt;/p&gt;
+&lt;h3 id=&quot;第一步：注入APP方法&quot;&gt;&lt;a href=&quot;#第一步：注入APP方法&quot; class=&quot;headerlink&quot; title=&quot;第一步：注入APP方法&quot;&gt;&lt;/a&gt;第一步：注入APP方法&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// 小程序全局对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;const WeChat = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 微信注入的App方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.App = App;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 微信注入的getApp方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.getApp = getApp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 微信注入的Page方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.Page = Page;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 微信注入的Component方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.Component = Component;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 微信注入的API&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.wx = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Object.assign(WeChat.wx, wx);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * 注册页面&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.register = function (PageClass) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    let page = Utils.newInstance(PageClass);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // 此处可以统一处理公共方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    WeChat.Page(page);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * 初始化组件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WeChat.initComponent = function (ComponentClass) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    let component = Utils.newInstance(ComponentClass);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    WeChat.Component(component);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export default WeChat;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Wechat" scheme="https://hanlife.github.io/categories/Wechat/"/>
+    
+    
+      <category term="wechat" scheme="https://hanlife.github.io/tags/wechat/"/>
+    
+  </entry>
   
   <entry>
     <title>防止重复触发事件</title>
@@ -45,7 +66,7 @@
     <link href="https://hanlife.github.io/2018/08/20/vue%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>https://hanlife.github.io/2018/08/20/vue知识点/</id>
     <published>2018-08-20T06:16:05.000Z</published>
-    <updated>2018-08-20T06:19:37.835Z</updated>
+    <updated>2018-09-16T10:56:20.192Z</updated>
     
     <summary type="html">
     
@@ -121,11 +142,11 @@
       <category term="随记" scheme="https://hanlife.github.io/categories/%E9%9A%8F%E8%AE%B0/"/>
     
     
-      <category term="项目优化" scheme="https://hanlife.github.io/tags/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/"/>
+      <category term="JavaScript" scheme="https://hanlife.github.io/tags/JavaScript/"/>
     
       <category term="随记" scheme="https://hanlife.github.io/tags/%E9%9A%8F%E8%AE%B0/"/>
     
-      <category term="JavaScript" scheme="https://hanlife.github.io/tags/JavaScript/"/>
+      <category term="项目优化" scheme="https://hanlife.github.io/tags/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/"/>
     
       <category term="MVC" scheme="https://hanlife.github.io/tags/MVC/"/>
     
@@ -151,11 +172,11 @@
       <category term="随记" scheme="https://hanlife.github.io/categories/%E9%9A%8F%E8%AE%B0/"/>
     
     
-      <category term="随记" scheme="https://hanlife.github.io/tags/%E9%9A%8F%E8%AE%B0/"/>
-    
       <category term="JavaScript" scheme="https://hanlife.github.io/tags/JavaScript/"/>
     
       <category term="浏览器" scheme="https://hanlife.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+      <category term="随记" scheme="https://hanlife.github.io/tags/%E9%9A%8F%E8%AE%B0/"/>
     
   </entry>
   

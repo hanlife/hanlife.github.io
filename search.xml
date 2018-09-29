@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Less之美]]></title>
+    <url>%2F2018%2F09%2F29%2FLess%2F</url>
+    <content type="text"><![CDATA[封装动画 keyframes解决浏览器兼容写法。1234567891011121314151617181920212223242526.keyframes (@prefix,@name,@content) when (@prefix=def) &#123; @keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=moz) &#123; @-moz-keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=o) &#123; @-o-keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=webkit) &#123; @-webkit-keyframes @name&#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=all) &#123; .keyframes(moz,@name,@content); .keyframes(o,@name,@content); .keyframes(webkit,@name,@content); .keyframes(def,@name,@content);&#125; 调用123456789101112.animation-start .anm_name&#123; .keyframes(all,anm_name,&#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125; &#125;);&#125; 结果12345678910111213141516171819202122232425262728293031323334353637383940@-moz-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@-o-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@-webkit-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125; 舒服]]></content>
+      <categories>
+        <category>Less</category>
+      </categories>
+      <tags>
+        <tag>Less</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微信小程序-page]]></title>
     <url>%2F2018%2F09%2F16%2FWechat01%2F</url>
     <content type="text"><![CDATA[封装Page封装思路：实现所有页面所有事件统一处理。如果单独页面直接定义页面事件，公共方法被重写。 第一步：注入APP方法123456789101112131415161718192021222324252627282930313233// 小程序全局对象const WeChat = &#123;&#125;;// 微信注入的App方法WeChat.App = App;// 微信注入的getApp方法WeChat.getApp = getApp;// 微信注入的Page方法WeChat.Page = Page;// 微信注入的Component方法WeChat.Component = Component;// 微信注入的APIWeChat.wx = &#123;&#125;;Object.assign(WeChat.wx, wx);/** * 注册页面 */WeChat.register = function (PageClass) &#123; let page = Utils.newInstance(PageClass); // 此处可以统一处理公共方法 WeChat.Page(page);&#125;;/** * 初始化组件 */WeChat.initComponent = function (ComponentClass) &#123; let component = Utils.newInstance(ComponentClass); WeChat.Component(component);&#125;;export default WeChat; 此处newInstance()方法实现 通过Class类型创建一个对象(把所有继承来的属性方法设置到这个对象的普通属性中) 第二步：建公共BasePage方法123456789101112export default class BasePage &#123; constructor() &#123; &#125; // 生命周期函数--监听页面加载 onLoad(o) &#123; &#125; onReady(o) &#123; &#125; onShow(o) &#123; &#125; // 自定义全局方法 提示等 showErrorMsg(title) &#123; wx.showModal(&#123;&#125;) &#125;&#125; 第三步： 页面实例化BasePage 12345678910111213141516171819202122232425262728import &#123;WeChat, BasePage,&#125; from &apos;../../lib&apos;;class Home extends BasePage &#123; constructor() &#123; super(); this.setDefaultData(&#123; // 默认数据 data: null, &#125;); &#125; static onShareAppMessage() &#123; return &#123; title: `分享标题`, path: `/pages/index` &#125;; &#125; events = &#123; // 绑定事件 bindClick() &#123; this.setData(&#123;data: 1&#125;); &#125; &#125;; onPageLoad() &#123; &#125;&#125;WeChat.register(Home); 结语：每个页面JS都继承BasePage的公共方法，通过register重新绑定到Page方法上面。以此来统一处理所以页面事件。 下期更新Component组件封装]]></content>

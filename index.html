@@ -316,6 +316,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hanlife.github.io/2018/09/29/Less/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HanLaiFu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谁也替代不了">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/Less/" itemprop="url">Less之美</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T20:53:33+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Less/" itemprop="url" rel="index">
+                    <span itemprop="name">Less</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/09/29/Less/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://hanlife.github.io/2018/09/29/Less/" class="cy_cmt_count" data-xid="2018/09/29/Less/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="封装动画-keyframes"><a href="#封装动画-keyframes" class="headerlink" title="封装动画 keyframes"></a>封装动画 keyframes</h3><p>解决浏览器兼容写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.keyframes (@prefix,@name,@content) when (@prefix=def) &#123;</span><br><span class="line">  @keyframes @name &#123;</span><br><span class="line">    @content();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.keyframes (@prefix,@name,@content) when (@prefix=moz) &#123;</span><br><span class="line">  @-moz-keyframes @name &#123;</span><br><span class="line">    @content();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.keyframes (@prefix,@name,@content) when (@prefix=o) &#123;</span><br><span class="line">  @-o-keyframes @name &#123;</span><br><span class="line">    @content();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.keyframes (@prefix,@name,@content) when (@prefix=webkit) &#123;</span><br><span class="line">  @-webkit-keyframes  @name&#123;</span><br><span class="line">    @content();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.keyframes (@prefix,@name,@content) when (@prefix=all) &#123;</span><br><span class="line">  .keyframes(moz,@name,@content);</span><br><span class="line">  .keyframes(o,@name,@content);</span><br><span class="line">  .keyframes(webkit,@name,@content);</span><br><span class="line">  .keyframes(def,@name,@content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/29/Less/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hanlife.github.io/2018/09/16/Wechat01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1825,7 +1982,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1836,7 +1993,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1847,7 +2004,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

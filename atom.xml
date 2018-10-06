@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hanlife.github.io/"/>
-  <updated>2018-09-29T12:55:04.331Z</updated>
+  <updated>2018-10-06T03:35:59.595Z</updated>
   <id>https://hanlife.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git学习之路</title>
+    <link href="https://hanlife.github.io/2018/10/06/Git/"/>
+    <id>https://hanlife.github.io/2018/10/06/Git/</id>
+    <published>2018-10-06T03:34:58.000Z</published>
+    <updated>2018-10-06T03:35:59.595Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础篇&quot;&gt;&lt;a href=&quot;#基础篇&quot; class=&quot;headerlink&quot; title=&quot;基础篇&quot;&gt;&lt;/a&gt;基础篇&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add             // 加入仓库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit          // 提交修改&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git branch  name    // 新建name分支&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout name   // 切换到name分支上&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git merge master    // 将分支name合并到master上&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Git-rebase&quot;&gt;&lt;a href=&quot;#Git-rebase&quot; class=&quot;headerlink&quot; title=&quot;Git rebase&quot;&gt;&lt;/a&gt;Git rebase&lt;/h3&gt;&lt;p&gt;第二种合并分支的方法是 git rebase。Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git branch bugFix&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout bugFix&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout bugFix&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git rebase master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="https://hanlife.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://hanlife.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>Less之美</title>

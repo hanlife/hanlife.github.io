@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git学习之路]]></title>
+    <url>%2F2018%2F10%2F06%2FGit%2F</url>
+    <content type="text"><![CDATA[基础篇12345git add // 加入仓库git commit // 提交修改git branch name // 新建name分支git checkout name // 切换到name分支上git merge master // 将分支name合并到master上 Git rebase第二种合并分支的方法是 git rebase。Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。 1234567git branch bugFixgit checkout bugFixgit commit git checkout mastergit commit git checkout bugFixgit rebase master 高级篇分离 HEAD1234567891011121314git checkout ID // 切换HEAD到某个版本git checkout bugFix~ //移动HEAD至分支的前一个版本相对引用2（~）git branch -f master C6 //把master指向 C6版本git checkout HEAD~ // 把HEAD指针前移一个版本git branch -f bugFix HEAD~1 // 把bugFix指证移动到HEAD的前一个版本撤销变更git reset // 用于本地git revert // 用于远程git reset HEAD~ // 以head指针为准，回退到HEAD前一个版本git revert HEAD // 以head指针为准，回退到HEAD版本 移动提交记录自由修改提交树 Git Cherry-pick12git cherry-pick C3 // 将分支C3版本克隆到master上C3’版本git rebase -i C1 // 以C1版本为头。图形化操作后面的版本，移动删除 推荐学习网址： Learn Git Branching]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Less之美]]></title>
     <url>%2F2018%2F09%2F29%2FLess%2F</url>
     <content type="text"><![CDATA[封装动画 keyframes解决浏览器兼容写法。1234567891011121314151617181920212223242526.keyframes (@prefix,@name,@content) when (@prefix=def) &#123; @keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=moz) &#123; @-moz-keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=o) &#123; @-o-keyframes @name &#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=webkit) &#123; @-webkit-keyframes @name&#123; @content(); &#125;&#125;.keyframes (@prefix,@name,@content) when (@prefix=all) &#123; .keyframes(moz,@name,@content); .keyframes(o,@name,@content); .keyframes(webkit,@name,@content); .keyframes(def,@name,@content);&#125; 调用123456789101112.animation-start .anm_name&#123; .keyframes(all,anm_name,&#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125; &#125;);&#125; 结果12345678910111213141516171819202122232425262728293031323334353637383940@-moz-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@-o-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@-webkit-keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125;@keyframes anm_name &#123; 0% &#123; height: 0; opacity: 0; &#125; 100% &#123; height: 144px; opacity: 1; &#125;&#125; 舒服]]></content>
